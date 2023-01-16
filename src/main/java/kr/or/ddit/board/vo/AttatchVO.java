@@ -1,20 +1,27 @@
 package kr.or.ddit.board.vo;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @EqualsAndHashCode(of="attNo")
 @NoArgsConstructor
+@ToString(exclude="realFile")
 public class AttatchVO implements Serializable{
-	private MultipartFile realFile;
+	@JsonIgnore
+	private transient MultipartFile realFile; //직렬화할때 배제
 	public AttatchVO(MultipartFile realFile) { //AttatchVO를 realFile의 어댑터로 사용 가능
 		super();
 		this.realFile = realFile;
@@ -32,4 +39,9 @@ public class AttatchVO implements Serializable{
 	private Long attFilesize;
 	private String attFancysize;
 	private Integer attDownload;
+	
+	public void saveTo(File saveFolder) throws IOException {
+		if(realFile == null || realFile.isEmpty()) return;
+		realFile.transferTo(new File(saveFolder, attSavename));
+	}
 }

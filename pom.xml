@@ -126,6 +126,13 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.5.11</version>
 		</dependency>
+		<!-- 트랜잭션 관리용(AOP 지원) -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.19</version>
+			<scope>runtime</scope>
+		</dependency>
 
 		<!-- commons 계열 -->
 		<dependency>

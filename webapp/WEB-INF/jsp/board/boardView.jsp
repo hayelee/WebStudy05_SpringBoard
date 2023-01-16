@@ -44,4 +44,11 @@
       <th>조회수</th>
       <td>${board.boHit}</td>
    </tr>
+ 	<tr>
+      <td colspan="2">
+         <form:button type="submit" class="btn btn-success">수정</form:button>
+         <form:button type="submit" class="btn btn-danger">삭제</form:button>
+         <a class="btn btn-secondary" href="<c:url value='/board/boardList.do'/>">목록으로</a>
+      </td>
+   </tr>
 </table>

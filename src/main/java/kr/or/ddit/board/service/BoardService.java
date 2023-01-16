@@ -2,6 +2,7 @@ package kr.or.ddit.board.service;
 
 import kr.or.ddit.board.vo.AttatchVO;
 import kr.or.ddit.board.vo.BoardVO;
+import kr.or.ddit.enumpkg.ServiceResult;
 import kr.or.ddit.vo.PagingVO;
 
 public interface BoardService {

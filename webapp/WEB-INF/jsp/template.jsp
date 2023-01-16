@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" buffer="8kb"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html>
 	<head>
@@ -14,7 +15,11 @@
 		<title>Dashboard Template · Bootstrap v5.2</title>
 		
 		<tiles:insertAttribute name="preScript"/>
-		
+		<c:if test="${not empty message }">
+			<script>
+				alert("${message}");
+			</script>
+		</c:if>
 		<style>
 			.bd-placeholder-img {
 				font-size: 1.125rem;
