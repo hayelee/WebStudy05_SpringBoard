@@ -1,6 +1,7 @@
 package kr.or.ddit.board.dao;
 
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.util.List;
@@ -50,7 +51,10 @@ public class BoardDAOTest {
 
 	@Test
 	public void testSelectBoard() {
-		fail("Not yet implemented");
+		BoardVO board = boardDAO.selectBoard(117);
+		assertNotNull(board);
+		board.getAttatchList()
+			.stream().forEach(System.out::println);
 	}
 
 	@Test

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.or.ddit.board.dao.BoardDAO;
+import kr.or.ddit.board.exception.NotExistBoardException;
 import kr.or.ddit.board.vo.AttatchVO;
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.vo.PagingVO;
@@ -38,8 +39,11 @@ public class BoardServiceImpl implements BoardService {
 
    @Override
    public BoardVO retrieveBoard(int boNo) {
-      // TODO Auto-generated method stub
-      return null;
+	   BoardVO board = boardDAO.selectBoard(boNo);
+	   if(board==null) {
+		   throw new NotExistBoardException(boNo);
+	   }
+	return board;
    }
 
    @Override
