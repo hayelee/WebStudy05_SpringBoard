@@ -61,7 +61,7 @@ public class BoardServiceImpl implements BoardService {
 	   }
    }
    
-   @Transactional
+//   @Transactional // 선언적 프로그래밍 기법(여기서 트랜잭션 모든 작업 끝) - AOP방법론
    @Override
    public int createBoard(BoardVO board) {
 	  String plain = board.getBoPass();

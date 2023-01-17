@@ -46,8 +46,8 @@
    </tr>
  	<tr>
       <td colspan="2">
-         <form:button type="submit" class="btn btn-success">수정</form:button>
-         <form:button type="submit" class="btn btn-danger">삭제</form:button>
+           <a href="${updateURL }" class="btn btn-primary">수정</a>
+           <a href="${deleteURL }" class="btn btn-danger">삭제</a>
          <a class="btn btn-secondary" href="<c:url value='/board/boardList.do'/>">목록으로</a>
       </td>
    </tr>
