@@ -70,5 +70,8 @@
 </table>
 </form:form>
 <script>
-   CKEDITOR.replace('boContent');
+   CKEDITOR.replace('boContent', {
+	   /* 글 쓸 때 파일 업로드하기 */
+	   filebrowserUploadUrl : '${pageContext.request.contextPath}/board/boardImage.do?command=QuickUpload&type=Files&responseType=json'
+   });
 </script>
