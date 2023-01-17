@@ -1,3 +1,6 @@
+<%@page import="kr.or.ddit.ui.BootstrapPaginationRender"%>
+<%@page import="kr.or.ddit.vo.PagingVO"%>
+<%@page import="kr.or.ddit.ui.DefaultPaginationRenderer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -44,7 +47,11 @@
 	<tfoot>
 		<tr>
 			<td colspan="6">
-				<div id="pagingArea">${pagingVO.pagingHTML }</div>
+				<div id="pagingArea">
+					${pagingVO }
+<%-- 					<%=new BootstrapPaginationRender().renderPagination((PagingVO)request.getAttribute("pagingVO")) %> --%>
+<!-- 					<ui:pagination /> -->
+			</div>
 				<form:form id="searchUI" modelAttribute="simpleCondition" method="get" onclick="return false;">
 					<form:select path="">
 						<option value>전체</option>
