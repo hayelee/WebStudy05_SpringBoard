@@ -1,10 +1,7 @@
-<%@page import="kr.or.ddit.ui.BootstrapPaginationRender"%>
-<%@page import="kr.or.ddit.vo.PagingVO"%>
-<%@page import="kr.or.ddit.ui.DefaultPaginationRenderer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
+<%@ taglib uri="http://www.ddit.or.kr/class305" prefix="ui" %>
 
 <table class="table table-bordered">
 	<thead class="thead-dark"> 
@@ -19,6 +16,7 @@
 	</thead>
 	<tbody>
 		<c:set var="boardList" value="${pagingVO.dataList}" />
+		<!-- 스크립트단으로 감 -->
 		<c:choose>
 			<c:when test="${not empty boardList }">
 				<c:forEach items="${boardList }" var="board">
@@ -48,9 +46,8 @@
 		<tr>
 			<td colspan="6">
 				<div id="pagingArea">
-					${pagingVO }
-<%-- 					<%=new BootstrapPaginationRender().renderPagination((PagingVO)request.getAttribute("pagingVO")) %> --%>
-<!-- 					<ui:pagination /> -->
+				<!-- 스크립트단으로 감 -->
+					<ui:pagination pagingVO="${pagingVO }" type="bootstrap"/>
 			</div>
 				<form:form id="searchUI" modelAttribute="simpleCondition" method="get" onclick="return false;">
 					<form:select path="">
